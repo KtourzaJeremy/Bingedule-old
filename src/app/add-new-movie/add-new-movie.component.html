@@ -1,0 +1,37 @@
+<form class="formNewMovie" #newMovieForm="ngForm">
+    <div class="formHeaderFooter">
+      <h2>Générer votre Binge day idéal</h2>
+      <button class="add-btn-seance" (click)="addSeance()">Séance supp.</button>
+    </div>
+    <div class="addMovie">
+      <div class="formInput">
+        <label for="new-movie-name">Nom</label>
+        <input id="new-movie-name" [(ngModel)]="newMovieName" name="newMovieName" required/>
+      </div>
+      <div class="formInput">
+        <label for="new-movie-length">Durée</label>
+        <input class="timeInput" type="time" id="new-movie-length" [(ngModel)]="newMovieLength" name="newMovieLength" required/>
+      </div>
+    </div>
+  
+    <div class="shows">
+      <div *ngFor="let seance of seances; let i = index; trackBy:trackByFn">
+        <div class="formInput formInput-seance">
+        <label>Séance {{i+1}}</label>
+          <div class="show">
+            <input class="timeInput" type="time" [(ngModel)]="seances[i]" name="seance{{i}}" required>
+            <button (click)="removeSeance(i)">X</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="formHeaderFooter">
+      <button class="add-btn-reset" (click)="reset(newMovieForm)">Réinit.</button>
+      
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button class="add-btn-movie" (click)="add(newMovieForm)">
+        Ajout d'un nouveau film
+      </button>
+    </div>
+</form>

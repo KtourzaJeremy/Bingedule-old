@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: var(--color-bg-primary); }
+
+:root {
+    --color-bg-primary: #d0d6df;
+    --color-bg-primary-offset: #f1f3f7;
+    --color-bg-white: #fff;
+    --color-bg-active: #d2e3fc;
+    --color-bg-focus: #e8f0fe;
+    --color-text-primary: #3a3c42;
+    --color-text-primary-offset: #898c94;
+    --color-orange: #FF6347;
+    --color-green: #228B22;
+    --color-purple: #682ba1;
+    --color-purple-light: #9047d4;
+    --color-black: #000;
+
+    --color-border: #9393a3;
+    --color-border-hover: #676774;
+  
+    /*--color-red: #d92027;*/
+    --color-red: #f73434;
+    --color-red-hover: #df2e2e;
+    --color-red-active: #ce2929;
+    --color-blue: #3498db;
+    --color-blue-hover: #2c8bca;
+    --color-blue-active: #276ab6;
+    --color-green: #34db58;
+    --color-green-hover: #2dc93a;
+    --color-green-active: #29b935;
+
+    --border-radius: 5px;
+}
+
+:host {
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    */font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 5px 0;
+}
+
+p {
+    margin: 0;
+}
+
+.spacer {
+    flex: 1;
+}
+
+input {
+    border: var(--color-border) solid 1px;
+    border-radius: var(--border-radius);
+}
+
+input:hover {
+    border-color: var(--color-border-hover);
+}

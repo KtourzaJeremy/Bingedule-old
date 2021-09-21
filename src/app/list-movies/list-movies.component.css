@@ -1,0 +1,87 @@
+
+.list_movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    column-gap: 15px;
+    row-gap: 10px;
+}
+
+.mov_box {
+    background-color: var(--color-bg-white);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+.mov_line {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 50px;
+}
+
+.mov_title {
+    padding: 5px 7px;
+    font-weight: 300;
+    line-height: 1.2;
+    font-size: 15px;
+    word-spacing: -1px;
+    text-overflow: "...";
+    overflow: hidden;
+    max-height: 35px;
+    width: 100%
+}
+
+.mov_duree {
+    background-color: var(--color-black);
+    color: var(--color-bg-white);
+    font-size: small;
+    flex-wrap: nowrap;
+    display: flex;
+    min-width: 60px;
+    justify-content: center;
+    padding: 5px;
+}
+
+.list_shows {
+    display:inline-flex;
+    row-gap: 10px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.mov_show {
+    background-color: var(--color-blue);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px 15px;
+}
+
+.mov_deb {
+    font-size: larger;
+    font-weight: 600;
+}
+.mov_fin {
+    font-size: x-small;
+}
+
+button.delete {
+    background-color: var(--color-black);
+    color:  var(--color-bg-white);
+    padding: 5px 10px;
+    border:none;
+}
+
+button.delete:hover {
+    background-color: var(--color-red);
+    color: var(--color-bg-white);
+}
+button.delete:active {
+    background-color: var(--color-red-active);
+}

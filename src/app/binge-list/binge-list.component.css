@@ -1,0 +1,19 @@
+
+.BingeIt {
+    display: inline-flex;
+}
+
+.listOfSeances-test {
+    background-color: lightblue;
+    margin: 10px;
+    padding: 20px;
+}
+
+.listOfSeances {
+    background-color: lightpink;
+    margin: 10px;
+}
+
+.list {
+    margin: 20px;
+}

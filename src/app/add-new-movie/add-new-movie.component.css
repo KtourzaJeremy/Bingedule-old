@@ -1,0 +1,138 @@
+.formNewMovie {
+    background-color: var(--color-bg-white);
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin: 0 auto 20px;
+  }
+
+  .formHeaderFooter {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+  }
+    
+  .formHeaderFooter h2 {
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .formHeaderFooter button {
+    height: 40px;
+    border: none;
+    color: var(--color-bg-white);
+  }
+
+  .add-btn-seance {
+    background-color: var(--color-green);
+    min-width: 115px;
+  }
+  .add-btn-seance:hover {
+    background-color: var(--color-green-hover);
+  }
+  .add-btn-seance:active {
+    background-color: var(--color-green-active);
+  }
+
+  .add-btn-reset {
+    background-color: var(--color-red);
+    min-width: 55px;
+  }
+  .add-btn-reset:hover {
+    background-color: var(--color-red-hover);
+  }
+  .add-btn-reset:active {
+    background-color: var(--color-red-active);
+  }
+
+  .add-btn-movie {
+    background-color: var(--color-blue);
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+  }
+  .add-btn-movie:hover {
+    background-color: var(--color-blue-hover);
+  }
+  .add-btn-movie:active {
+    background-color: var(--color-blue-active);
+  }
+  
+  .addMovie {
+    display: inline-flex;
+    align-items: end;
+    justify-content: center;
+    column-gap: 15px;
+    margin-top: 12px;
+  }
+
+  .formNewMovie input {
+    height: 27px;
+  }
+
+  .formInput {
+    display: flex;
+    flex-direction: column;
+  }
+  .formInput label {
+    font-size: smaller;
+    color: var(--color-text-primary-offset);
+  }
+  .formInput-seance {
+    margin: 5px 10px!important;
+  }
+
+  #new-movie-name {
+    padding-left: 8px;
+  }
+  
+  .timeInput {
+    width: 65px;
+    padding-right: 0;
+    padding-left: 14px;
+  }
+
+  .shows {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 390px;
+    margin: 10px auto 12px;
+  }
+  
+  .show {
+    display: inline-flex;
+  }
+  
+  .show:hover > input, .show:hover > button {
+    border-color: var(--color-border-hover);
+  }
+  
+  .show input {
+    width: 84px;
+  }
+  
+  .show button {
+    border: var(--color-border) solid 1px;
+    border-radius: 0 5px 5px 0;
+    margin-left: -19px;
+  }
+  
+  .show button:hover {
+    background-color: var(--color-red);
+    color: var(--color-bg-white);
+  }
+  .show button:active {
+    background-color: var(--color-red-active);
+  }
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid var(--color-green)!important;
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid var(--color-red)!important;
+  }

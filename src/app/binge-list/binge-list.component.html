@@ -1,0 +1,23 @@
+<button class="bingeIt-btn" (click)="bingeIt()">Binge it !</button>
+
+<div class="BingeIt">
+
+    <div class="listOfSeances-test">
+        <div class="" *ngFor="let seance of seances; let i = index">
+            {{seance.name}}
+            {{seance.begining | date:'shortTime'}}
+            (fin {{seance.ending | date:'shortTime'}})
+        </div>
+    </div>
+
+    <div class="listOfSeances">
+        <div class="list" *ngFor="let list of listOfSeances; let i = index">
+            <div *ngFor="let seance of list.seances; let i = index">
+                {{seance.name}}
+                {{seance.begining | date:'shortTime'}}
+                (fin {{seance.ending | date:'shortTime'}})
+            </div>
+        </div>
+    </div>
+
+</div>
