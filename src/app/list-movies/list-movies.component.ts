@@ -24,8 +24,7 @@ export class ListMoviesComponent implements OnInit {
 
   //////// Other methods //////////
   lengthTimeFormat(length:number) {
-    var date = this.dateService.formatDate('minute', length);
-    return `${date.getHours()}h ${date.getMinutes()>9 ? date.getMinutes() : `0${date.getMinutes()}`}min`;
+    return this.dateService.lengthTimeFormat(length);
   }
 
   endDate(date:Date,length:number) {

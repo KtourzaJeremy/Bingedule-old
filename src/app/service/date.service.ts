@@ -17,6 +17,11 @@ export class DateService {
     return this.dateAdd(this.newDate(0,0), interval, units);
   }
 
+  lengthTimeFormat(length:number) {
+    var date = this.formatDate('minute', length);
+    return `${date.getHours()}h${date.getMinutes()>9 ? date.getMinutes() : `0${date.getMinutes()}`}`;
+  }
+
 /**
  * Adds time to a date. Modelled after MySQL DATE_ADD function.
  * Example: dateAdd(new Date(), 'minutes', 30)  //returns 30 minutes from now.
@@ -43,5 +48,13 @@ export class DateService {
       //default       :  ret = null;  break;
     }
     return ret;
+  }
+
+  tempsAttente(fin:Date,debut:Date):string{
+    //return fin.getTime()
+    var length = debut.getTime() - fin.getTime();
+    console.log(`${debut} ${fin} ${length}`)
+    var date = this.formatDate('second', length/1000);
+    return `${date.getHours()}h${date.getMinutes()>9 ? date.getMinutes() : `0${date.getMinutes()}`}`;
   }
 }

@@ -62,7 +62,7 @@
   
   .addMovie {
     display: inline-flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
     column-gap: 15px;
     margin-top: 12px;

@@ -2,20 +2,43 @@
 
 <div class="BingeIt">
 
-    <div class="listOfSeances-test">
-        <div class="" *ngFor="let seance of seances; let i = index">
-            {{seance.name}}
-            {{seance.begining | date:'shortTime'}}
-            (fin {{seance.ending | date:'shortTime'}})
+    <div *ngIf="showListing(4)" class="listOfSeances">
+        <button (click)="show4 = !show4"> <h2>4 films à la suite</h2> {{show4 ? 'hide' : 'show'}}</button>
+        <div *ngIf="show4">
+            <div class="list" *ngFor="let list of listOfSeances4; let i = index">
+                <div *ngFor="let seance of list.seances; let j = index">
+                    {{seance.name}}
+                    {{seance.begining | date:'shortTime'}}
+                    (fin {{seance.ending | date:'shortTime'}})
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="listOfSeances">
-        <div class="list" *ngFor="let list of listOfSeances; let i = index">
-            <div *ngFor="let seance of list.seances; let i = index">
-                {{seance.name}}
-                {{seance.begining | date:'shortTime'}}
-                (fin {{seance.ending | date:'shortTime'}})
+    <div *ngIf="showListing(3)" class="listOfSeances">
+        <button (click)="show3 = !show3"> <h2>3 films à la suite</h2> {{show3 ? 'hide' : 'show'}}</button>
+        <div class="bingeList" *ngIf="show3">
+            <div class="bingeProp" *ngFor="let list of listOfSeances3; let i = index">
+                <div class="bingeCase" *ngFor="let seance of list.seances; let j = index">
+                    <div>{{seance.name}} ({{lengthTimeFormat(seance.length)}})</div>
+                    <div>
+                        {{seance.begining | date:'shortTime'}} - {{seance.ending | date:'shortTime'}}
+                    </div>
+                    <div>{{attenteDuree(3,i,j)}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="showListing(2)" class="listOfSeances">
+        <button (click)="show2 = !show2"> <h2>2 films à la suite</h2> {{show2 ? 'hide' : 'show'}}</button>
+        <div *ngIf="show2">
+            <div class="list" *ngFor="let list of listOfSeances2; let i = index">
+                <div *ngFor="let seance of list.seances; let j = index">
+                    {{seance.name}}
+                    {{seance.begining | date:'shortTime'}}
+                    (fin {{seance.ending | date:'shortTime'}})
+                </div>
             </div>
         </div>
     </div>

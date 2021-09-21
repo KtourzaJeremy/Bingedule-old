@@ -12,7 +12,13 @@ export class BingeListComponent implements OnInit {
 
   @Input() movies!: Movie[];
   seances: Seance[] = [];
-  listOfSeances: ListOfSeances[] = []
+  listOfSeances2: ListOfSeances[] = [];
+  listOfSeances3: ListOfSeances[] = [];
+  listOfSeances4: ListOfSeances[] = [];
+
+  show2 = false;
+  show3 = false;
+  show4 = false;
 
   constructor(private movieService: MovieService, private dateService:DateService) { }
 
@@ -28,12 +34,14 @@ export class BingeListComponent implements OnInit {
 
     this.setListOfSeances();
 
-    console.log(this.listOfSeances)
+    console.log(this.seances);
   }
 
   initializeListOfSeances() {
     this.seances = [];
-    this.listOfSeances = [];
+    this.listOfSeances2 = [];
+    this.listOfSeances3 = [];
+    this.listOfSeances4 = [];
 
     for (const movie of this.movies) {
       for (const seance of movie.shows) {
@@ -62,33 +70,33 @@ export class BingeListComponent implements OnInit {
             begining:this.dateService.dateAdd(seance,'minute',0),
             ending:this.dateService.dateAdd(seance,'minute',movie.length) 
           } as Seance)
-        this.listOfSeances.push({seances:s});
+        this.listOfSeances2.push({seances:s});
         break;
       }
     }
   }
 
-  setListOfSeances() {
+  setListOfSeances_old() {
     for (const firstSeance of this.seances) {
       for (const secondSeance of this.seances) {
         if (this.compareTwoSeances(firstSeance,secondSeance)) {
           continue;
         }
-        this.pushListOfSeances([firstSeance,secondSeance]);
+        this.pushListOfSeances(this.listOfSeances2,[firstSeance,secondSeance]);
 
-        if(this.seances.length > 2) {
+        if(this.movies.length > 2) {
           for(const thirdSeance of this.seances){
             if (this.compareTwoSeances(secondSeance,thirdSeance)) {
               continue;
             }
-            this.pushListOfSeances([firstSeance,secondSeance,thirdSeance]);
+            this.pushListOfSeances(this.listOfSeances3,[firstSeance,secondSeance,thirdSeance]);
 
-            if(this.seances.length > 3) {
+            if(this.movies.length > 3) {
               for(const forthSeance of this.seances){
                 if (this.compareTwoSeances(thirdSeance,forthSeance)) {
                   continue;
                 }
-                this.pushListOfSeances([firstSeance,secondSeance,thirdSeance,forthSeance]);
+                this.pushListOfSeances(this.listOfSeances4,[firstSeance,secondSeance,thirdSeance,forthSeance]);
               }
             }
           }
@@ -97,7 +105,36 @@ export class BingeListComponent implements OnInit {
     }
   }
 
-  pushListOfSeances(seances:Seance[]) {
+  setListOfSeances() {
+    for (const firstSeance of this.seances) {
+      for (const secondSeance of this.seances) {
+        if (this.compareSeances([secondSeance,firstSeance])) {
+          continue;
+        }
+        this.pushListOfSeances(this.listOfSeances2,[firstSeance,secondSeance]);
+
+        if(this.movies.length > 2) {
+          for(const thirdSeance of this.seances){
+            if (this.compareSeances([thirdSeance,secondSeance,firstSeance])) {
+              continue;
+            }
+            this.pushListOfSeances(this.listOfSeances3,[firstSeance,secondSeance,thirdSeance]);
+
+            if(this.movies.length > 3) {
+              for(const forthSeance of this.seances){
+                if (this.compareSeances([forthSeance,thirdSeance,secondSeance,firstSeance])) {
+                  continue;
+                }
+                this.pushListOfSeances(this.listOfSeances4,[firstSeance,secondSeance,thirdSeance,forthSeance]);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  pushListOfSeances(list:ListOfSeances[],seances:Seance[]) {
     var s:Seance[] = [];
     for (const seance of seances) {
       s.push({ name:seance.name,
@@ -106,7 +143,7 @@ export class BingeListComponent implements OnInit {
         ending:seance.ending 
       } as Seance);
     }
-    this.listOfSeances.push({seances:s});
+    list.push({seances:s});
   }
   
   compareTwoSeances(s1:Seance,s2:Seance):boolean{
@@ -119,6 +156,28 @@ export class BingeListComponent implements OnInit {
     return false;
   }
 
+  compareSeances(s:Seance[]):boolean{
+    if (s[1].name == s[0].name) {
+      return true;
+    }
+    else if (s[1].ending.getTime() >= s[0].begining.getTime()) {
+      return true;
+    }
+
+    if (s.length > 2) {
+      if (s[2].name == s[0].name) {
+        return true;
+      }
+    }
+    if (s.length > 3) {
+      if (s[3].name == s[0].name) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   listContainsSeance(list:Seance[],s:Seance):boolean{
     for (const seance of list) {
       if (s.name == seance.name){
@@ -126,6 +185,44 @@ export class BingeListComponent implements OnInit {
       }
     }
     return true
+  }
+
+  showListing(i:number){
+    switch (i) {
+      case 4:
+        return this.listOfSeances4.length > 0;
+      case 3:
+        return this.listOfSeances3.length > 0;
+      case 2:
+        return this.listOfSeances2.length > 0;
+    
+      default:
+        return false;
+    }
+  }
+
+  lengthTimeFormat(length:number) {
+    return this.dateService.lengthTimeFormat(length);
+  }
+
+  attenteDuree(list:number,i:number,j:number){
+    switch (list) {
+      /*
+      case 4:
+        return this.listOfSeances4.length > 0;
+      case 3:
+        return this.listOfSeances3.length > 0;
+      case 2:
+        return this.listOfSeances2.length > 0;*/
+      case 3:
+        if (this.listOfSeances3[i].seances.length > j+1){
+          return `Temps d'attente : ${this.dateService.tempsAttente(this.listOfSeances3[i].seances[j].ending,this.listOfSeances3[i].seances[j+1].begining)}`;
+        } else {
+          return "FIN";
+        }
+      default:
+        return "NOPE";
+    }
   }
 
 }

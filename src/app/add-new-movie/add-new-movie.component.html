@@ -6,11 +6,11 @@
     <div class="addMovie">
       <div class="formInput">
         <label for="new-movie-name">Nom</label>
-        <input id="new-movie-name" [(ngModel)]="newMovieName" name="newMovieName" required/>
+        <input id="new-movie-name" tabindex="0" [(ngModel)]="newMovieName" name="newMovieName" required/>
       </div>
       <div class="formInput">
         <label for="new-movie-length">Durée</label>
-        <input class="timeInput" type="time" id="new-movie-length" [(ngModel)]="newMovieLength" name="newMovieLength" required/>
+        <input class="timeInput" tabindex="0" type="time" id="new-movie-length" [(ngModel)]="newMovieLength" name="newMovieLength" required/>
       </div>
     </div>
   
@@ -19,19 +19,18 @@
         <div class="formInput formInput-seance">
         <label>Séance {{i+1}}</label>
           <div class="show">
-            <input class="timeInput" type="time" [(ngModel)]="seances[i]" name="seance{{i}}" required>
-            <button (click)="removeSeance(i)">X</button>
+            <input class="timeInput" type="time" tabindex="0" [(ngModel)]="seances[i]" name="seance{{i}}" required>
+            <button tabindex="-1" (click)="removeSeance(i)">X</button>
           </div>
         </div>
       </div>
     </div>
     
     <div class="formHeaderFooter">
-      <button class="add-btn-reset" (click)="reset(newMovieForm)">Réinit.</button>
-      
       <!-- (click) passes input value to add() and then clears the input -->
       <button class="add-btn-movie" (click)="add(newMovieForm)">
         Ajout d'un nouveau film
       </button>
+      <button class="add-btn-reset" (click)="reset(newMovieForm)">Réinit.</button>
     </div>
 </form>
