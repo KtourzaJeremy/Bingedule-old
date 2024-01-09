@@ -1,0 +1,13 @@
+
+.mov_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mov_deb {
+    font-size: 17px;
+    font-weight: 600;
+}
+.mov_fin {
+    font-size: 9px;
+}

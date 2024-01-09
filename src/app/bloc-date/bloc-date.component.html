@@ -1,0 +1,5 @@
+<div class="mov_div">
+    <p class="mov_deb">{{begin | date:'shortTime'}}</p>
+    <p *ngIf="this.end == ''" class="mov_fin">(fin {{end_d | date:'shortTime'}})</p>
+    <p *ngIf="this.end != ''" class="mov_fin">(fin {{end | date:'shortTime'}})</p>
+</div>

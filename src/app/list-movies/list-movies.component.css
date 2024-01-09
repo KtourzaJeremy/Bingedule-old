@@ -21,7 +21,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: flex-start;
-    height: 50px;
+    height: 45px;
 }
 
 .mov_title {
@@ -39,11 +39,7 @@
 .mov_duree {
     background-color: var(--color-black);
     color: var(--color-bg-white);
-    font-size: small;
-    flex-wrap: nowrap;
-    display: flex;
-    min-width: 60px;
-    justify-content: center;
+    min-width: 45px;
     padding: 5px;
 }
 
@@ -57,18 +53,7 @@
 .mov_show {
     background-color: var(--color-blue);
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 7px 15px;
-}
-
-.mov_deb {
-    font-size: larger;
-    font-weight: 600;
-}
-.mov_fin {
-    font-size: x-small;
 }
 
 button.delete {

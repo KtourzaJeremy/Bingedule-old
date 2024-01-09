@@ -89,9 +89,9 @@
   }
   
   .timeInput {
-    width: 65px;
+    /*width: 70px;*/
     padding-right: 0;
-    padding-left: 14px;
+    padding-left: 10px;
   }
 
   .shows {
@@ -110,15 +110,15 @@
   .show:hover > input, .show:hover > button {
     border-color: var(--color-border-hover);
   }
-  
+  /*
   .show input {
     width: 84px;
-  }
+  }*/
   
   .show button {
     border: var(--color-border) solid 1px;
     border-radius: 0 5px 5px 0;
-    margin-left: -19px;
+    margin-left: -3px;
   }
   
   .show button:hover {

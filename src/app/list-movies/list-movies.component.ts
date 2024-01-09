@@ -24,7 +24,7 @@ export class ListMoviesComponent implements OnInit {
 
   //////// Other methods //////////
   lengthTimeFormat(length:number) {
-    return this.dateService.lengthTimeFormat(length);
+    return this.dateService.lengthTimeFormat('minute',length);
   }
 
   endDate(date:Date,length:number) {

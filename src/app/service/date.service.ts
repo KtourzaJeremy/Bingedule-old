@@ -17,8 +17,8 @@ export class DateService {
     return this.dateAdd(this.newDate(0,0), interval, units);
   }
 
-  lengthTimeFormat(length:number) {
-    var date = this.formatDate('minute', length);
+  lengthTimeFormat(interval:string,length:number) {
+    var date = this.formatDate(interval, length);
     return `${date.getHours()}h${date.getMinutes()>9 ? date.getMinutes() : `0${date.getMinutes()}`}`;
   }
 
@@ -50,10 +50,13 @@ export class DateService {
     return ret;
   }
 
-  tempsAttente(fin:Date,debut:Date):string{
-    //return fin.getTime()
+  tempsAttente(fin:Date,debut:Date):number{
     var length = debut.getTime() - fin.getTime();
-    console.log(`${debut} ${fin} ${length}`)
+    return length/1000;
+  }
+
+  tempsAttente_format(fin:Date,debut:Date):string{
+    var length = debut.getTime() - fin.getTime();
     var date = this.formatDate('second', length/1000);
     return `${date.getHours()}h${date.getMinutes()>9 ? date.getMinutes() : `0${date.getMinutes()}`}`;
   }

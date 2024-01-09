@@ -2,13 +2,12 @@
     <div class="mov_box" *ngFor="let movie of movies">
       <div class="mov_line">
         <p class="mov_title">{{movie.name}}</p>
-        <p class="mov_duree">{{lengthTimeFormat(movie.length)}}</p>
+        <p class="mov_duree duree">{{lengthTimeFormat(movie.length)}}</p>
         <!--<button class="delete" title="delete movie" (click)="delete(movie)">x</button>-->
       </div>
       <div class="list_shows">
         <div class="mov_show" *ngFor="let show of movie.shows">
-          <p class="mov_deb">{{show | date:'shortTime'}}</p>
-          <p class="mov_fin">(fin {{endDate(show,movie.length) | date:'shortTime'}})</p>
+          <app-bloc-date [begin]="show" [end]="endDate(show,movie.length)"></app-bloc-date>
         </div>
       </div>
     </div>

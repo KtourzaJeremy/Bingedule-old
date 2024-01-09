@@ -16,3 +16,8 @@ export interface Seance {
 export interface ListOfSeances {
     seances: Array<Seance>;
 }
+
+export interface Proposition {
+    nbMovie: number;
+    list: Array<ListOfSeances>;
+}

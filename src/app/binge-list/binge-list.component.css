@@ -1,36 +1,107 @@
-
-
-.listOfSeances-test {
-    background-color: lightblue;
+.listOfSeances {
+    background-color: var(--color-bg-primary-offset);
     margin: 10px;
-    padding: 20px;
 }
 
-.listOfSeances {
-    background-color: lightpink;
-    margin: 10px;
+.listOfSeances h2 {
+    margin: 5px auto;
+    font-size: 17px;
+}
+
+.listOfSeances button {
+    width: 100%;
+}
+
+.hideBlock {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 35px;
+    row-gap: 30px;
+    padding: 10px 0 15px;
 }
 
 .list {
-    margin: 20px;
-}
-
-.bingeList {
     display: flex;
     flex-direction: column;
-    column-gap: 20px;
-    row-gap: 20px;
+    row-gap: 0;
+    align-items: center;
+    background-color: var(--color-bg-white);
+    padding: 4px 15px 7px;
 }
 
-.bingeProp {
+.bingeSeance {
     display: inline-flex;
-    row-gap: 10px;
+    align-items: center;
+    border-bottom: solid 2px var(--color-bg-primary);
+    padding: 1px 0 3px;
     column-gap: 10px;
-    width: 50%;
 }
 
-.bingeCase {
+.bingeSeance .nom {
+    font-size: small;
+    width: 115px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.bingeDuree {
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+    margin: 6px 0 1px;
+}
+
+.dureeTotale {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.labelTot {
+    font-variant: small-caps;
+    width: 60px;
+    font-size: small;
+    font-weight: 300;
+    line-height: 10px;
+}
+/*
+.bingeDate {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+}*/
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 4px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    margin-bottom: -1px;
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-bottom: 2px;
+  }

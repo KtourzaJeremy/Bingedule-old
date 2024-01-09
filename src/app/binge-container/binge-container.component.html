@@ -1,0 +1,9 @@
+<button class="bingeIt-btn" (click)="bingeIt()">Binge it !</button>
+
+<div class="BingeIt">
+
+    <div *ngFor="let prop of propositions; let i = index">
+        <app-binge-list [proposition]="prop"></app-binge-list>
+    </div>
+
+</div>

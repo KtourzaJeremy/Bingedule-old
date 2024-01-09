@@ -63,3 +63,12 @@ input {
 input:hover {
     border-color: var(--color-border-hover);
 }
+
+.duree {
+    font-size: small;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    font-variant: small-caps tabular-nums;
+    letter-spacing: 1px;
+}
