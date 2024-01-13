@@ -16,10 +16,16 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 2, name: 'Terminator 2', length: 114, shows:[this.dateService.newDate(11,1),this.dateService.newDate(14,19),this.dateService.newDate(17,17),this.dateService.newDate(20,55)] },
       { id: 3, name: 'Pokémon le film, Mewtwo VS Mew', length: 69, shows:[this.dateService.newDate(13,0),this.dateService.newDate(18,55),this.dateService.newDate(20,49),this.dateService.newDate(22,5)] }
     ];
-    const movies = [
+    const movies3 = [
       { id: 1, name: 'A', length: 60, shows:[this.dateService.newDate(10,0),this.dateService.newDate(11,30),this.dateService.newDate(15,30)] },
       { id: 2, name: 'B', length: 120, shows:[this.dateService.newDate(10,0),this.dateService.newDate(12,30),this.dateService.newDate(15,0)] },
       { id: 3, name: 'C', length: 60, shows:[this.dateService.newDate(11,0),this.dateService.newDate(16,5),this.dateService.newDate(17,5)] }
+    ];
+    const movies = [
+      { id: 1, name: 'Past Lives', length: 106, shows:[this.dateService.newDate(13,15),this.dateService.newDate(15,30),this.dateService.newDate(17,45)] },
+      { id: 2, name: 'Priscilla (HALLES)', length: 113, shows:[this.dateService.newDate(14,10),this.dateService.newDate(16,40),this.dateService.newDate(19,5)] },
+      //{ id: 3, name: 'Priscilla (Bastille)', length: 113, shows:[this.dateService.newDate(14,55),this.dateService.newDate(17,15),this.dateService.newDate(19,40)] },
+      //{ id: 3, name: 'Mean Girls', length: 112, shows:[this.dateService.newDate(14,0),this.dateService.newDate(16,30),this.dateService.newDate(19,0)] },
     ];
     return {movies};
   }

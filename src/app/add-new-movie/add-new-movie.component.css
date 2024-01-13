@@ -1,5 +1,5 @@
 .formNewMovie {
-    background-color: var(--color-bg-white);
+    background-color: var(--color-bg-card);
     display: flex;
     flex-direction: column;
     max-width: 450px;
